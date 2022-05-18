@@ -124,9 +124,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/angular-tree-component/tsconfig.lib.json",
             "project": "projects/angular-tree-component/ng-package.json"
-          }
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-tree-component/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-tree-component/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
