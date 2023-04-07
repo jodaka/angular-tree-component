@@ -1,34 +1,14 @@
 {
-  "name": "@bugsplat/angular-tree-component",
-  "version": "13.0.1",
-  "description": "A simple yet powerful tree component for Angular2",
+  "name": "@jodaka/angular-tree-component",
   "author": "Circlon Group <os-group@circlon.de>",
-  "homepage": "https://github.com/BugSplat-Git/angular-tree-component",
+  "homepage": "https://github.com/jodaka/angular-tree-component",
+  "description": "A simple yet powerful tree component for Angular",
   "license": "MIT",
-  "keywords": [
-    "ng",
-    "angular",
-    "ng2",
-    "angular2",
-    "tree",
-    "treeview",
-    "tree-view",
-    "angular2-tree",
-    "angular-tree",
-    "angular tree",
-    "angular2 tree",
-    "ng2-tree",
-    "ng2tree",
-    "ng2 tree",
-    "ngtree",
-    "ng-tree",
-    "angular-treeview",
-    "angular2-treeview",
-    "angular-tree-component",
-    "angular tree component",
-    "angular2-tree-component",
-    "angular2 tree component"
-  ],
+  "version": "13.0.2",
+  "repository": "https://github.com/jodaka/angular-tree-component.git",
+  "bugs": {
+    "url": "https://github.com/jodaka/angular-tree-component/issues"
+  },
   "scripts": {
     "lint:lib": "ng lint angular-tree-component",
     "build:lib": "npm run lint:lib && npm run clean:dist && ng build angular-tree-component",
@@ -57,20 +37,6 @@
   "files": [
     "dist/"
   ],
-  "readme": "https://github.com/BugSplat-Git/angular-tree-component/blob/master/README.md",
-  "contributors": [
-    "Adam Klein <adam@500tech.com>",
-    "Bobby Galli <bobbyg603@gmail.com>"
-  ],
-  "dependencies": {
-    "@angular/animations": "^13.3.8",
-    "@angular/cdk": "^13.3.7",
-    "@angular/forms": "^13.3.8",
-    "@angular/material": "^13.3.7",
-    "core-js": "^3.22.5",
-    "mobx": "~4.14.1",
-    "tslib": "^2.3.0"
-  },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1303.5",
     "@angular-devkit/build-angular": "^13.3.5",
@@ -119,24 +85,6 @@
     "uuid": "^8.2.0",
     "zone.js": "^0.11.5"
   },
-  "repository": "https://github.com/BugSplat-Git/angular-tree-component.git",
-  "bugs": {
-    "url": "https://github.com/BugSplat-Git/angular-tree-component/issues"
-  },
-  "engines": {
-    "node": ">=10.21.0"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "none",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": true,
-    "requirePragma": false
-  },
   "lint-staged": {
     "*.{js,ts,json}": [
       "./node_modules/.bin/prettier --write"
@@ -144,5 +92,61 @@
     "*.ts": [
       "tslint"
     ]
-  }
+  },
+  "readme": "https://github.com/jodaka/angular-tree-component/blob/master/README.md",
+  "contributors": [
+    "Adam Klein <adam@500tech.com>",
+    "Bobby Galli <bobbyg603@gmail.com>",
+    "Anton Kudris <anton@kudris.com>"
+  ],
+  "keywords": [
+    "ng",
+    "angular",
+    "ng2",
+    "angular2",
+    "tree",
+    "treeview",
+    "tree-view",
+    "angular2-tree",
+    "angular-tree",
+    "angular tree",
+    "angular2 tree",
+    "ng2-tree",
+    "ng2tree",
+    "ng2 tree",
+    "ngtree",
+    "ng-tree",
+    "angular-treeview",
+    "angular2-treeview",
+    "angular-tree-component",
+    "angular tree component",
+    "angular2-tree-component",
+    "angular2 tree component"
+  ],
+  "dependencies": {
+    "core-js": "^3.22.5",
+    "mobx": "~4.14.1",
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2015/jodaka-angular-tree-component.mjs",
+  "es2020": "fesm2020/jodaka-angular-tree-component.mjs",
+  "esm2020": "esm2020/jodaka-angular-tree-component.mjs",
+  "fesm2020": "fesm2020/jodaka-angular-tree-component.mjs",
+  "fesm2015": "fesm2015/jodaka-angular-tree-component.mjs",
+  "typings": "jodaka-angular-tree-component.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./jodaka-angular-tree-component.d.ts",
+      "esm2020": "./esm2020/jodaka-angular-tree-component.mjs",
+      "es2020": "./fesm2020/jodaka-angular-tree-component.mjs",
+      "es2015": "./fesm2015/jodaka-angular-tree-component.mjs",
+      "node": "./fesm2015/jodaka-angular-tree-component.mjs",
+      "default": "./fesm2020/jodaka-angular-tree-component.mjs"
+    },
+    "./css/angular-tree-component.css": "./css/angular-tree-component.css"
+  },
+  "sideEffects": false
 }

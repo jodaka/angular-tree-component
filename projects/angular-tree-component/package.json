@@ -1,47 +1,42 @@
 {
-  "name": "@bugsplat/angular-tree-component",
+  "name": "@jodaka/angular-tree-component",
   "author": "Circlon Group <os-group@circlon.de>",
-  "homepage": "https://github.com/BugSplat-Git/angular-tree-component",
-  "description": "A simple yet powerful tree component for Angular2",
+  "homepage": "https://github.com/jodaka/angular-tree-component",
+  "description": "A simple yet powerful tree component for Angular",
   "license": "MIT",
-  "version": "13.0.1",
-  "repository": "https://github.com/BugSplat-Git/angular-tree-component.git",
+  "version": "13.0.2",
+  "repository": "https://github.com/jodaka/angular-tree-component.git",
   "bugs": {
-    "url": "https://github.com/BugSplat-Git/angular-tree-component/issues"
+    "url": "https://github.com/jodaka/angular-tree-component/issues"
   },
-  "readme": "https://github.com/BugSplat-Git/angular-tree-component/blob/master/README.md",
-  "contributors": [
-    "Adam Klein <adam@500tech.com>",
-    "Bobby Galli <bobbyg603@gmail.com>"
-  ],
-  "keywords": [
-    "ng",
-    "angular",
-    "ng2",
-    "angular2",
-    "tree",
-    "treeview",
-    "tree-view",
-    "angular2-tree",
-    "angular-tree",
-    "angular tree",
-    "angular2 tree",
-    "ng2-tree",
-    "ng2tree",
-    "ng2 tree",
-    "ngtree",
-    "ng-tree",
-    "angular-treeview",
-    "angular2-treeview",
-    "angular-tree-component",
-    "angular tree component",
-    "angular2-tree-component",
-    "angular2 tree component"
-  ],
-  "dependencies": {
-    "core-js": "^3.22.5",
-    "mobx": "~4.14.1"
+  "scripts": {
+    "lint:lib": "ng lint angular-tree-component",
+    "build:lib": "npm run lint:lib && npm run clean:dist && ng build angular-tree-component",
+    "build": "npm run build:lib",
+    "clean:dist": "rimraf dist",
+    "copy:files": "cp ./README.md ./dist/angular-tree-component && cp ./LICENSE ./dist/angular-tree-component && mkdir -p ./dist/angular-tree-component/css/ && cp ./projects/angular-tree-component/src/lib/angular-tree-component.css ./dist/angular-tree-component/css/",
+    "copy:files:win": "copy README.md .\\dist\\angular-tree-component && copy LICENSE .\\dist\\angular-tree-component && xcopy .\\projects\\angular-tree-component\\src\\lib\\angular-tree-component.css .\\dist\\angular-tree-component\\css\\",
+    "doc": "typedoc --module commonjs --out doc lib/defs/api.ts",
+    "clean:all": "npm run clean:dist && rimraf node_modules && npm cache clean",
+    "lint": "npx eslint",
+    "prepublish:release": "npm run build:lib && npm run copy:files",
+    "prepublish:lib:win": "npm run build:lib && npm run copy:files:win",
+    "start:example-app": "ng serve",
+    "start:example-app:es5": "ng serve --configuration=es5",
+    "start:docs-app": "ng serve --project=docs-app",
+    "build:docs-app": "ng build docs-app",
+    "example:cli:build": "npm run build && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && cp src/index.build.html src/index.html && ./node_modules/.bin/ng build --aot && cp src/index.dev.html src/index.html && mkdir -p 500tech/angular-tree-component/master/example/cli/ && cp -rf dist 500tech/angular-tree-component/master/example/cli/",
+    "test:ci:local": "testcafe chrome:headless e2e/*.testcafe.js --app \"ng serve\" -r xunit:./xunit/res.xml -c 4 --assertion-timeout 10000 --app-init-delay 20000 --page-load-timeout 10000 --selector-timeout 20000",
+    "test:dev": "testcafe chrome:headless e2e/*.testcafe.js",
+    "test:debug": "testcafe chrome e2e/*.testcafe.js --inspect-brk",
+    "test:slow": "testcafe chrome e2e/*.testcafe.js --speed 0.1",
+    "e2e:tsc": "../node_modules/.bin/tsc --p e2e/tsconfig.json",
+    "publish:release": "npm publish ./dist/angular-tree-component --access public",
+    "publish:next": "npm publish ./dist/angular-tree-component --tag next"
   },
+  "files": [
+    "dist/"
+  ],
   "devDependencies": {
     "@angular-devkit/architect": "^0.1303.5",
     "@angular-devkit/build-angular": "^13.3.5",
@@ -89,5 +84,59 @@
     "typescript": "~4.6.4",
     "uuid": "^8.2.0",
     "zone.js": "^0.11.5"
-  }
+  },
+  "lint-staged": {
+    "*.{js,ts,json}": [
+      "./node_modules/.bin/prettier --write"
+    ],
+    "*.ts": [
+      "tslint"
+    ]
+  },
+  "readme": "https://github.com/jodaka/angular-tree-component/blob/master/README.md",
+  "contributors": [
+    "Adam Klein <adam@500tech.com>",
+    "Bobby Galli <bobbyg603@gmail.com>",
+    "Anton Kudris <anton@kudris.com>"
+  ],
+  "keywords": [
+    "ng",
+    "angular",
+    "ng2",
+    "angular2",
+    "tree",
+    "treeview",
+    "tree-view",
+    "angular2-tree",
+    "angular-tree",
+    "angular tree",
+    "angular2 tree",
+    "ng2-tree",
+    "ng2tree",
+    "ng2 tree",
+    "ngtree",
+    "ng-tree",
+    "angular-treeview",
+    "angular2-treeview",
+    "angular-tree-component",
+    "angular tree component",
+    "angular2-tree-component",
+    "angular2 tree component"
+  ],
+  "dependencies": {
+    "core-js": "^3.22.5",
+    "mobx": "~4.14.1",
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2015/jodaka-angular-tree-component.mjs",
+  "es2020": "fesm2020/jodaka-angular-tree-component.mjs",
+  "esm2020": "esm2020/jodaka-angular-tree-component.mjs",
+  "fesm2020": "fesm2020/jodaka-angular-tree-component.mjs",
+  "fesm2015": "fesm2015/jodaka-angular-tree-component.mjs",
+  "typings": "jodaka-angular-tree-component.d.ts",
+  "exports": {
+    "./css/angular-tree-component.css": "./css/angular-tree-component.css",
+    "./styles": "./css/angular-tree-component.css"
+  },
+  "sideEffects": false
 }
